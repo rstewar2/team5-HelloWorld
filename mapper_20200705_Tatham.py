@@ -30,8 +30,8 @@ class mvMapper(object):
 			columns = row.split(',', 3) # Seperate our rows into columns
 			source = int(columns[0]) # Set our Source pages to column 0
 			dest = int(columns[1]) # Set our Destination pages to column 1
-			p = float(columns[2]) # Set our probability to column 2. We will need to find a way to create this in part 2.
-			self.emit(dest, p * self.vectorize[source]) # Output our Key, Value Pair, (Destination Page, Weighted Vector = 1/rows*probability path)
+			prob = float(columns[2]) # Set our probability to column 2. We will need to find a way to create this in part 2.
+			self.emit(dest, prob * self.vectorize[source]) # Output our Key, Value Pair, (Destination Page, Weighted Vector = 1/rows*probability path)
 
 	def status(self, message): # Basic Troubleshooting we may call later
 		sys.stderr.write("reporter:status:{0}\n".format(message))
