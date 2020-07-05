@@ -21,7 +21,7 @@ class mvMapper(object):
 		with open('part1-v.txt') as text: # open a key that has the proportion of 1/rows (i.e. if there are four rows, output = .25)
             #This is a kind of cheaty workaround we should improve
 			for line in text: # Begin looping through the text line by line
-                columns = line.split(',', 1) # Split the text into two seperate columns starting at one and adding a new one for the next ","
+				columns = line.split(',', 1) # Split the text into two seperate columns starting at one and adding a new one for the next ","
 				self.vectorize[int(columns[0])] = float(columns[1]) 
                 # Set self.vector of the source page (column[0]) to probability of 1/rows
 
