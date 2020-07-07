@@ -16,14 +16,6 @@ class mvMapper(object):
 		self.infile = infile # Rename infile to know what infile we are referencing
 		self.separator = separator # Rename seperator to know what objects seperator we are referencing
 		self.vectorize = dict() # create a dictionary variable that is consistent with our other variable naming
-        
-        #I Would Rather use a different method for the following block
-		with open('part1-v.txt') as text: # open a key that has the proportion of 1/rows (i.e. if there are four rows, output = .25)
-            #This is a kind of cheaty workaround we should improve
-			for line in text: # Begin looping through the text line by line
-				columns = line.split(',', 1) # Split the text into two seperate columns starting at one and adding a new one for the next ","
-				self.vectorize[int(columns[0])] = float(columns[1]) 
-                # Set self.vector of the source page (column[0]) to probability of 1/rows
 
 	def map(self): # Here we will actually output our Key, Value pair for the Reducer to take in
 		for row in self: # Begin looping through the object line by line
