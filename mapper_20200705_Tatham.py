@@ -49,6 +49,3 @@ class mvMapper(object):
 
 if __name__ == '__main__': # Makes sure that all code is executed at the bottom and make sure that script being imported to make sure that the code is completely done before handing it over to Hadoop, this allows for better debugging.
 	mvMapper().map()
-
-
-
