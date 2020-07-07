@@ -16,6 +16,7 @@ class mvMapper(object):
 		self.infile = infile # Rename infile to know what infile we are referencing
 		self.separator = separator # Rename seperator to know what objects seperator we are referencing
 		self.vectorize = dict() # create a dictionary variable that is consistent with our other variable naming
+		for i in range(1,5): self.vectorize[i] = 1.0/4
 
 	def map(self): # Here we will actually output our Key, Value pair for the Reducer to take in
 		for row in self: # Begin looping through the object line by line
