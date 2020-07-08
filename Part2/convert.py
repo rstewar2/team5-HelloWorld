@@ -4,6 +4,7 @@ import re
 
 SEP = ','
 NODES = dict()
+total_nodes = 875713
 #BETA = 0.85
 
 def read_web_file():
@@ -31,8 +32,9 @@ def create_M():
 """
 
 def create_v0():
-    v_initial = np.ones((get_total_count(), 1))
-    return np.dot(1.0/get_total_count(), v_initial)
+    v_initial = dict()
+    for key in NODES.keys(): v_initial[key] = 1/875713
+    return v_initial
 
 """
 def iterate_V(matrix, vector):
@@ -50,8 +52,8 @@ def write_M_to_file():
 
 def write_V_to_file(vector):
     with open('initial_V.txt', 'w') as output:
-        for i in range(get_total_count()):
-            output.write('{0}{1}{2}\n'.format(i, SEP, vector[i][0]))
+        for key, val in vector.items():
+            output.write('{0}{1}{2}\n'.format(key, SEP, val))
 
 read_web_file()
 #MAT = create_M()
