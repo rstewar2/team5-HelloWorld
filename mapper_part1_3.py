@@ -17,36 +17,15 @@ class mvMapper(object):
 		self.vectorize = dict() # create a dictionary variable that is consistent with our other variable naming
 		#self.vectorize = {1: 9.0/24, 2: 5.0/24, 3: 5.0/24, 4:5.0/24}
 		
-		with open('part-00000') as vector:
-                	for v in vector:
-                    		elements = v.split(self.separator)
-                    		source = int(elements[0].strip())
-                    		value = float(elements[1].strip())
-                    		self.vectorize[source] = value
+		
+		with open('part-00000.txt') as vector:
+	        	for v in vector:
+	            		elements = v.split(self.separator)
+	            		source = int(elements[0].strip())
+	            		value = float(elements[1].strip())
+	            		self.vectorize[source] = value
 			
-	"""
-       		self.iteration = sys.argv[1] # initialize iteration based on command-line input
-		if self.iteration == '1':        	
-			for i in range(1,5): 
-				self.vectorize[i] = 1.0/4 # on first iteration, initialize vector v to 1.0/#nodes for all elements
-		else:
-            	# For all other iterations greater than 1, open the previous results file and initalize vector v to elements in results file
-            	# Other users will have to alter path to reflect their own
-            		with open('part-00000') as vector:
-                		for v in vector:
-                    			elements = v.split(',')
-                    			source = int(elements[0].strip())
-                    			value = float(elements[1].strip())
-                    			self.vectorize[source] = value
 
-	def map(self): # Here we will actually output our Key, Value pair for the Reducer to take in
-		for row in self: # Begin looping through the object line by line
-			columns = row.split(',', 2) # Seperate our rows into columns
-			source = int(columns[0]) # Set our Source pages to column 0
-			dest = int(columns[1]) # Set our Destination pages to column 1
-			prob = float(columns[2]) # Set our probability to column 2. We will need to find a way to create this in part 2.
-			self.emit(dest, prob * self.vectorize[source]) # Output our Key, Value Pair, (Destination Page, Weighted Vector = 1/rows*probability path)
-	"""
 	def map(self): # Here we will actually output our Key, Value pair for the Reducer to take in
 		reader = csv.reader(self.infile)		
 		for row in reader: # Begin looping through the object line by line up to the end of the vector file, which we know is four lines long
