@@ -51,7 +51,7 @@ def write_M_to_file():
 def write_V_to_file(vector):
     with open('initial_V.txt', 'w') as output:
         for i in range(get_total_count()):
-            output.write('{0}{1}{2}\n'.format(i+1, SEP, vector[i][0]))
+            output.write('{0}{1}{2}\n'.format(i, SEP, vector[i][0]))
 
 read_web_file()
 #MAT = create_M()
