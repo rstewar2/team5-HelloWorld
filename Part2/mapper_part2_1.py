@@ -34,7 +34,8 @@ class mvMapper(object):
 			source = int(row[0]) # Set our Source pages to column 0
 			dest = int(row[1]) # Set our Destination pages to column 1
 			prob = float(row[2]) # Set our probability to column 2. We will need to find a way to create this in part 2.
-			self.emit(dest, self.beta * prob * self.vectorize[source] + (1 - self.beta) * self.e) # Output our Key, Value Pair, (Destination Page, Weighted Vector = 1/rows*probability path)
+			if source in self.vectorize:
+				self.emit(dest, self.beta * prob * self.vectorize[source] + (1 - self.beta) * self.e) # Output our Key, Value Pair, (Destination Page, Weighted Vector = 1/rows*probability path)
 
 	def emit(self, key, value): # Emmitting Formatting
 		sys.stdout.write('{0}{1}{2}\n'.format(key, self.separator, value))
